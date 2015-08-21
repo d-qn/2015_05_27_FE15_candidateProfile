@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Project 6 - Candidate Profile</title>
+
+</head>
+<body>
+<h1>Project 6 - Candidate Profile</h1>
+
+<h3>General view</h3>
+
+<p>There are many different aspects that we could look into in this project. I wish to avoid having another front-end to smarvote candidates data.
+We suggest a visualization app consisting of two to three parts (perhaps divided in tabs or seperate):</p>
+
+<ul>
+<li>Candidates' socio-demographics</li>
+<li>Candidates' issues positions</li>
+<li>Candidates' issues positions in a geographical map (if possible...)</li>
+</ul>
+
+
+<h2>1) Candidates' socio-demographics</h2>
+
+<p><strong>Aim</strong></p>
+
+<p><em>Provide users with the socio-demographic key characteristics of candidates by political party and/or cantons</em></p>
+
+<ul>
+<li>Specific characteristics (indicators) of candidates or parties on national level (over all cantons) and on cantonal level</li>
+<li>Indicators: Gender, age, place of residence (urban, rural, ...), level of education, occupation</li>
+<li>Known problems: Data gaps in small cantons, data gaps within candidate data</li>
+</ul>
+
+
+<h4>Indicators to display</h4>
+
+<ul>
+<li>Age</li>
+<li>Gender (? maybe too binary to be visualized along with other indicators)</li>
+<li>Job</li>
+<li>Education</li>
+<li>Residence (based on zip code)
+
+<ul>
+<li>% foreigners</li>
+<li>% rural (i.e. % of agricultural land)</li>
+<li>% on welfare (?)</li>
+<li>% unemployed (?)</li>
+</ul>
+</li>
+</ul>
+
+
+<p><strong> Faceting / grouping </strong></p>
+
+<ul>
+<li>By political party</li>
+<li>By cantons (or regions /language?)</li>
+</ul>
+
+
+<h6>Notes on indicators</h6>
+
+<ul>
+<li>Level of education (<a href="http://www.uis.unesco.org/Education/ISCEDMappings/Documents/North%20America%20and%20Western%20Europe/Switzerland_ISCED_mapping.xls">ISCED</a> Probably not necessary to use their categories though)</li>
+<li>Job (<a href="http://www.ilo.org/public/english/bureau/stat/isco/isco08/">ILO</a>, Major groups and sub-major groups? )
+
+<ul>
+<li>Based on <a href="http://www.ilo.org/public/english/bureau/stat/isco/docs/resol08.pdf">this document</a>. No need to use all their 500 job categories, but maybe only have the "Major groups and sub-major groups" (p.4), i.e. about 50-60 job categories</li>
+</ul>
+</li>
+<li>Residence data by commune <a href="http://www.bfs.admin.ch/bfs/portal/fr/index/regionen/02/daten.Document.157694.xls">OFS</a></li>
+</ul>
+
+
+<h4>Dataviz ideas</h4>
+
+<p><strong>Heatmap</strong></p>
+
+<p><img src="4heat-545x564.png" alt="Fig heatmap" /></p>
+
+<ul>
+<li>Choose socio-demographics indicator (one of: age, education attainement, job, % foreigners where they live, how urban is where they live, ...). It could be the first dropdown and would show as the horizontal dimension of the heatmap. The colour scale of the heatmap would encode the frequency.</li>
+<li>Choose row (show by): Political party or canton. 2nd dropdown, it would correspond to the rows of the heatmap</li>
+<li>Filter: Default: all, by remaining either party or canton (3rd dropdown)</li>
+</ul>
+
+
+<p>This would allow to visually compare different socio-demographic indicators by cantons and/or by party</p>
+
+<ul>
+<li>Interactivity: hover over square will show all the corresponding candidate names with the possibility to show basic candidate profile on click</li>
+</ul>
+
+
+<p><strong> Small multiples distribution </strong></p>
+
+<h2>2) Candidates' issue positions</h2>
+
+<p><strong> Aim </strong></p>
+
+<p><em>Present the party positions (average and for specific groups like women, men, age groups, language) on 15-30 of the smartvote questions</em></p>
+
+<ul>
+<li>This would look for instance similar to the fig. under. Boxplot visualisation by political party. A dropdown or swiping to show another smartvote question.</li>
+<li>As additional depth/interactivity, if the user click on a party/line, it will show for that party only the positions by gender, age groups and languages on the different lines instead of having different parties.</li>
+<li>Eventually have another dropdown to filter by canton or language.</li>
+<li>Besides picking 15-30 questions that we think are relevant to people. We would need also to mine all the data to pre-select smartvote questions showing the most divergence by gender or age groups or language.</li>
+</ul>
+
+
+<p><img src="candidatesIssuePosition.png" alt="Fig CandidatesIssues" /></p>
+
+<h2>3) Candidates' issue positions in a geographical map</h2>
+
+<p>We have ideas about it, but this is maybe already too ambitious?</p>
+</body>
+</html>

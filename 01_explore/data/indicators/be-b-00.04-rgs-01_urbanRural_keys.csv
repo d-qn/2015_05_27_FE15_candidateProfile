@@ -1,0 +1,88 @@
+Description du champ ,Valeur ,Intitulés,Commentaires
+Taille des communes par classes 2012,1,≥ 100'000 habitant(e)s,Selon le nombre d'habitants STATPOP au 31.12.2013
+,2,50'000 - 99'999 habitant(e)s ,
+,3,20'000 - 49'999 habitant(e)s ,
+,4,10'000 - 19'999 habitant(e)s ,
+,5,5'000 - 9'999 habitant(e)s ,
+,6,2'000 - 4'999 habitant(e)s,
+,7,1'000 - 1'999 habitant(e)s,
+,8,< 1'000 habitant(e)s ,
+Régions urbaines/rurales 2000,1,Ville-centre d'une agglomération,"Il y a 64 villes-centres et non pas 62, comme indiqué dans la documentation de presse ""nouvelle définition des agglomérations"" du 15 mai 2003."
+Cette typologie se base essentiellement sur les données du RFP2000 et ne sera vraissemblablement plus adaptée à l'état des communes au-delà du 1.1.2016,2,Autre commune d'agglomération,
+,3,Ville isolée,
+,4,Commune rurale,
+Taille des agglomérations par classes 2000,1,≥ 500'000 habitant(e)s ,Nombre d'habitant(e)s selon RP 2000
+Cette typologie se base essentiellement sur les données du RFP2000 et ne sera  plus adaptée à l'état des communes au-delà du 1.1.2016,2,200'000 – 499‘999 habitant(e)s ,
+,3,100'000 – 199‘999 habitant(e)s ,
+,4,50'000 – 99‘999 habitant(e)s ,
+,5,< 50'000 habitant(e)s ,
+,6,Ville isolée,
+,0,Commune rurale ,
+Espace à caractère urbain 2012,1,Commune-centre d‘agglomération (ville-centre),Vous trouverez les explications relatives à la définition des espaces à caractères urbains sous :
+,2,Commune-centre d‘agglomération (centre principal),
+,3,Commune-centre d‘agglomération (centre secondaire),Espace à caractère urbain 2012
+,4,Commune de la couronne d‘agglomération,"Groupement selon les critères morphologiques et fonctionnels :
+1: Communes centres (Codes 1 à 3 et 6)
+2: Communes de couronne et multi-orientées (Code 4 et 5)
+0: Communes rurales sans caractère urbain (Code 0)"
+,5,Commune multi-orientée,
+,6,Commune-centre hors agglomération,
+,0,Commune rurale sans caractère urbain,
+Taille des agglomérations par classe 2012,1,≥ 500'000 habitant(e)s ,Selon le nombre d'habitants STATPOP au 31.12.2012
+,2,250'000 – 499‘999 habitant(e)s ,
+,3,100'000 – 249‘999 habitant(e)s ,
+,4,50'000 – 99‘999 habitant(e)s ,
+,5,< 50'000 habitant(e)s ,
+,0,Pas d'appartenance à une agglomération,
+Villes 2012,1,oui (ville),Vous trouverez les explications relatives à la défnition de ville sous :
+,0,non,Villes statistiques 2012
+Degré d'urbanisation (DEGURBA) - Degré d'urbanisation,1,Zone densément peuplée (en: densely populated area),"La nomenclature DEGURBA répartit l'ensemble des unités territoriales européennes de niveau LAU2 (Local Area Units, normalement les communes) en trois catégories, en fonction de leur degré d'urbanisation. Vous trouverez des informations détaillées sur la méthode et le codage utilisés pour les Etats de l'UE-27 et de l'AELE à l'adresse suivante: "
+,2,Zone urbanisée intermédiaire (en: intermediate density area),
+,3,Zone faiblement peuplée (en: thinly populated area),
+,,,http://ec.europa.eu/eurostat/ramon/miscellaneous/index.cfm?TargetUrl=DSP_DEGURBA 
+Types de communes (22),1,Grands centres (CG),"Communes suburbaines = communes à forte densité d'habitat.
+Communes périurbaines = communes à faible densité d'habitat."
+Cette typologie se base essentiellement sur les données du RFP2000 et ne sera vraissemblablement plus adaptée à l'état des communes au-delà du 1.1.2016,2,Centres moyens (CM),
+,3,Petits centres (CP),
+,4,Centres de régions périphériques (CPE),
+,5,Communes à revenu élevé (RE),
+,6,Communes touristiques (TT),
+,7,Communes semi-touristiques (TST),
+,8,Communes avec institutions collectives (THI),
+,9,Communes d'emploi de régions métropolitaines (ME),
+,10,Communes suburbaines de régions métropolitaines (MS),
+,11,Communes périurbaines de régions métropolitaines (MP),
+,12,Communes d’emploi de régions non métropolitaines (NE),
+,13,Communes suburbaines de régions non métropolitaines (NS),
+,14,Communes périurbaines de régions non métropolitaines (NP),
+,15,Communes pendulaires d'allochtones (NAL),
+,16,Communes pendulaires d'autochtones (NAU),
+,17,Communes industrielles et tertiaires (SIT),
+,18,Communes industrielles (SI),
+,19,Communes agro-industrielles (SAI),
+,20,Communes agro-tertiaires (SAT),
+,21,Communes agricoles (SA),
+,22,Communes en forte régression démographique (SR),
+Types de communes (9),1,Centres (CEN),"types de communes :  1, 2, 3"
+Cette typologie se base essentiellement sur les données du RFP2000 et ne sera vraissemblablement plus adaptée à l'état des communes au-delà du 1.1.2016,2,Communes suburbaines (SUB),"types de communes : 9, 10, 12, 13"
+,3,Communes à revenu élevé (RE),type de commune : 5
+,4,Communes périurbaines (PERI),types de communes : 11 + 14
+,5,Communes touristiques (TOUR),types de communes : 6 + 7
+,6,Communes industrielles et tertiaires (IND),"types de communes : 4, 8, 17, 18"
+,7,Communes pendulaires rurales (PEND),types de communes : 15 + 16
+,8,Communes agraires-mixtes (MIX),types de communes : 19 + 20
+,9,Communes agricoles (AGR),types de communes : 21 + 22
+Typologie der MS-Regionen 2000,1,"Aire métropolitaine, agglomération centrale (MAC)",
+Cette typologie se base essentiellement sur les données du RFP2000 et ne sera vraissemblablement plus adaptée à l'état des communes au-delà du 1.1.2016,2,"Aire métropolitaine, zone suburbaine (MZS)",
+,3,"Aire métropolitaine, zone périurbaine (MZP)",
+,4,"Aire métropolitaine, agglomération moyenne (MAM)",
+,5,"Aire métropolitaine, petite agglomération (MAP)",
+,6,Région tertiaire de grande agglomération (ATG),
+,7,Région industrielle d'agglomération moyenne (AIM),
+,8,Région tertiaire d'agglomération moyenne (ATM),
+,9,Région industrielle de petite agglomération (AIP),
+,10,Région touristique de petite agglomération (ATP),
+,11,Région rurale agro-industrielle (RAI),
+,12,Région rurale industrielle (RIN),
+,13,Région rurale agro-touristique (RAT),
+,14,Région rurale agricole (RAG),

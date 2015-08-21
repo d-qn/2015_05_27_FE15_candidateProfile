@@ -1,0 +1,560 @@
+country.df <- readOGR(file.path(path.ch, "ch-country.json"), "country")
+country.layers <- ogrListLayers(file.path(path.ch, "ch-country.json"))
+country.df <- formatShp(readOGR(file.path(path.ch, "ch-country.json"), country.layers[1]))
+country.df <- readOGR(file.path(path.ch, "ch-country.json"), country.layers[1])
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 2) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+country.df <- formatShp(readOGR(file.path(path.ch, "ch-country.json"), country.layers[1]))
+country.df <- readOGR(file.path(path.ch, "ch-country.json"), country.layers[1])
+str(country.df)
+country.df <- fortify(readOGR(file.path(path.ch, "ch-country.json"), country.layers[1]))
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 2) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 0.1) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+country.layers
+ch.communes + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 0.1) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+library(swiMap)
+?getPathShp
+require(rgdal)#
+require(rgeos)#
+require(ggplot2)
+path.ch <- getPathShp('CH')#
+ch <- readOGR(path.ch, layer = 'municipalities-without-lakes')#
+ch.df <- formatShp(ch)#
+# plot swiss commune map#
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+ch.communes#
+# add the lake and country contours#
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.layers <- ogrListLayers(file.path(path.ch, "ch-country.json"))#
+country.df <- fortify(readOGR(file.path(path.ch, "ch-country.json"), country.layers[1]))
+h.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 0.1)
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 0.1)
+ogrListLayers(path.ch)
+library(swiMap)
+system.file("extdata", package="swiMap")
+dir(system.file("extdata", package="swiMap"))
+dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt")
+?dir
+dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt", full.names = T)
+data.path <- dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt", full.names = T)#
+  read.csv(data.path, sep ="\t")
+?read.csv
+data <- read.csv(data.path, sep ="\t",  header = FALSE)
+str(data)
+data.path <- dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt", full.names = T)#
+  data <- read.csv(data.path, sep ="\t",  header = FALSE, stringsAsFactors = F)
+str(data)
+head(data)
+colnames(data) <- c('GHSTNR', 'BHSTNR', 'KTKZ', 'GBFSNR', 'GNAME', 'GNAMK', 'GARTE', #
+                      'GSTAT', 'GINIMUT', 'GINIART', 'GINIDAT', 'GFINMUT', 'GFINART', #
+                      'GFINDAT','GMUTDAT')
+str(data)
+asDate(data$GINIDAT)
+as.Date(data$GINIDAT)
+as.date
+?as.Date
+as.Date(data$GINIDAT, format = "%d.%m.%Y")
+str(data)
+as.Date(data$GINIDAT, format = "%d.%m.%Y")
+data$GINIDAT <- as.Date(data$GINIDAT, format = "%d.%m.%Y")#
+  data$GFINDAT <- as.Date(data$GFINDAT, format = "%d.%m.%Y")#
+  data$GMUTDAT <- as.Date(data$GMUTDAT, format = "%d.%m.%Y")
+str(data)
+min(data$GINIDAT)
+str(min(data$GINIDAT))
+as.Date("1960-01-01")
+today()
+date()
+?date()
+Sys.Date()
+"2012-01-01"
+Sys.Date()
+start <- as.Date(start)#
+  end <- as.Date(end)
+start
+start<- "2012-01-01"
+end <- Sys.Date()
+start <- as.Date(start)#
+  end <- as.Date(end)
+start
+end
+str(data)
+data$GFINDAT
+data$GFINDAT >= start
+which(data$GFINDAT >= start)
+data[which(data$GFINDAT >= start),]
+?encoding
+?Encoding
+data.path <- dir(system.file("extdata", package="swiMap"), "GDEHist_GDE\\.txt", full.names = T)#
+  data <- read.csv(data.path, sep ="\t",  header = FALSE, stringsAsFactors = F, encoding = "latin1")#
+  # colnames#
+  colnames(data) <- c('GHSTNR', 'BHSTNR', 'KTKZ', 'GBFSNR', 'GNAME', 'GNAMK', 'GARTE', #
+                      'GSTAT', 'GINIMUT', 'GINIART', 'GINIDAT', 'GFINMUT', 'GFINART', #
+                      'GFINDAT','GMUTDAT')#
+  # tranform to dates#
+  data$GINIDAT <- as.Date(data$GINIDAT, format = "%d.%m.%Y")#
+  data$GFINDAT <- as.Date(data$GFINDAT, format = "%d.%m.%Y")#
+  data$GMUTDAT <- as.Date(data$GMUTDAT, format = "%d.%m.%Y")
+data[which(data$GFINDAT >= start),]
+data[which(data$GFINDAT >= start & data$GINIART == 24),]
+data[which(data$GFINDAT >= start & data$GINIART == 26),]
+data[which(data$GFINDAT >= start || data$GINIDAT >= start),]
+data[which(data$GFINDAT >= start | data$GINIDAT >= start),]
+data[which(data$GFINDAT >= start & data$GINIART == 26),]
+start
+data[which(data$GFINDAT >= start & data$GINIART == 26),'GFINMUT']
+data$GFINMUT %in% data[which(data$GFINDAT >= start & data$GINIART == 26),'GINITMUT']
+which(data$GFINMUT %in% data[which(data$GFINDAT >= start & data$GINIART == 26),'GINITMUT'])
+data[which(data$GFINDAT >= start & data$GINIART == 26),'GFINMUT']
+data[which(data$GFINDAT >= start & data$GINIART == 26),]
+data[which(data$GFINDAT >= start & data$GINIART == 24),]
+which(data$GINIMUT == 3404)
+data[which(data$GINIMUT == 3404),]
+data[which(data$GFINDAT >= start | data$GINIDAT >= start),]
+data[which((data$GFINDAT >= start | data$GINIART >= start) & (data$GFINDAT <= end | data$GINIART <= end)),]
+data[which((data$GFINDAT >= start | data$GINIART >= start),]
+data[which(data$GFINDAT >= start | data$GINIART >= start),]
+data[which(data$GINIMUT == 3404),]
+data[which(data$GFINDAT >= start | data$GINIART >= start),]
+test<- data[which(data$GFINDAT >= start | data$GINIART >= start),]
+data[which(data$GFINDAT >= start | data$GINIART >= start),]
+data[which(data$GINIMUT == 3404),]
+test
+data[which(data$GINIMUT == 3404),]
+any(test$GINIMUT == 3404)
+summary(data$GFINDAT)
+T | NA
+NA | T
+data[which((data$GFINDAT >= start | data$GINIDAT >= start) & (data$GFINDAT <= end | data$GINIDAT <= end)),]
+library(swiTheme)
+?multiplot
+q1 <- qplot(1:10, 1:10, size = 10:1) + xlab("axis x label") + ylab ("y axis label") + theme_swi2()#
+q2 <- qplot(mpg, data = mtcars, geom = "dotplot") + theme_swi()#
+multiplot(list(q1, q2))
+library(leaflet)
+(m <- leaflet() %>% addTiles())
+m %>% setView(lng = -1.5, lat = 53.4, zoom = 10) # set centre and extent of map
+(m2 <- m %>%#
+  setView(-1.5, 53.4, 10) %>% # map location#
+  addMarkers(-1.4, 53.5) %>% # add a marker#
+  addPopups(-1.6, 53.3, popup = "Hello Sheffield!") %>% # popup#
+  # add som circles:#
+  addCircles(color = "black", runif(90, -2, -1), runif(90, 53, 54), runif(90, 10, 500)))
+library(leaflet)#
+m = leaflet() %>% addTiles()
+m
+? addTiles
+library(leaflet)#
+m = leaflet() %>% addTiles()
+m
+m %>% setView(lng = -1.5, lat = 53.4, zoom = 10)
+?leaflet
+?leafletOutput
+(m2 <- m %>%#
+  setView(-1.5, 53.4, 10) %>% # map location#
+  addMarkers(-1.4, 53.5) %>% # add a marker#
+  addPopups(-1.6, 53.3, popup = "Hello Sheffield!") %>% # popup#
+  # add som circles:#
+  addCircles(color = "black", runif(90, -2, -1), runif(90, 53, 54), runif(90, 10, 500)))
+? renderLeaflet
+?leafletMap
+?leafletOutput
+?publish
+publish
+save
+?save
+m2
+save(m2)
+save(m2, "test")
+save(m2, file = "test")
+getwd()
+? html_print
+? toHTML
+library(streamgraph)#
+library(dplyr)#
+ggplot2::movies %>%#
+  select(year, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>%#
+  tidyr::gather(genre, value, -year) %>%#
+  group_by(year, genre) %>%#
+  tally(wt=value) %>%#
+  streamgraph("genre", "n", "year") %>%#
+  sg_axis_x(20) %>%#
+  sg_colors("PuOr") %>%#
+  sg_legend(show=TRUE, label="Genres: ")
+saveWidget
+library(rgdal)#
+library(leaflet)#
+#
+tmp <- tempdir()#
+#
+url <- "http://personal.tcu.edu/kylewalker/data/mexico.zip"#
+#
+file <- basename(url)#
+#
+download.file(url, file)#
+#
+unzip(file, exdir = tmp)#
+#
+mexico <- readOGR(dsn = tmp, layer = "mexico", encoding = "UTF-8")
+library("swiTheme")#
+library("swiRcharts")#
+library("dplyr")#
+library("rjson")#
+#
+#############################################################################################
+###		SETTINGS	#
+#############################################################################################
+#
+votefile <- "data/VOTEScsv_cleaned.csv"#
+#
+#############################################################################################
+###		load initiative data	#
+#############################################################################################
+#
+initiatives.read <- read.csv(votefile, check.names = F, stringsAsFactors = F, encoding = "latin1")#
+#
+# reverse order #
+initiatives.read <- initiatives.read[rev(as.numeric(rownames(initiatives.read))),]#
+#
+# filter columns#
+initiatives <- initiatives.read %>% select(`Date of Votes`, `Title in English`, `Title in German`, `Title in French`, `Title in Italien`, `Yes [%]`, `Theme codes`)#
+# transform date to date#
+initiatives$date <- as.Date(initiatives$`Date of Votes`)#
+#
+initiatives$year <- as.numeric(substr(initiatives$`Date of Votes`,1, 4))#
+# add counter iniitiative per year #
+initiatives <- do.call(rbind, by(initiatives, initiatives$year, function(ii) {#
+	cbind(ii, n = nrow(ii):1)#
+}))#
+#############################################################################################
+###		Plot#
+#############################################################################################
+#
+## PLOT SETTINGS#
+plot.height <- 350#
+#
+data <- initiatives %>% select (`Title in English`, `year`, `n`,  `Yes [%]`)#
+colnames(data) <- c('name', 'y', 'x', 'value')#
+#
+a <- Highcharts$new()#
+#
+# use type='heatmap' for heat maps#
+a$chart(zoomType = "x", type = 'heatmap', height = plot.height, plotBackgroundColor = "#f7f5ed", inverted = TRUE)#
+a$series( data = rCharts::toJSONArray2(data, json = F, names = T))#
+#
+a$addParams(colorAxis =#
+  list(min = 0, max = 100, stops = list(#
+	  list(0, '#ab3d3f'),#
+      list(0.499, '#EED8D9'),	  #
+      list(0.5, '#999966'),#
+      list(1, '#336666') #
+  ))#
+)#
+#
+# a$legend(align='right',#
+#          layout='vertical',#
+#          margin=0,#
+#          verticalAlign='top',#
+#          y=25,#
+#          symbolHeight=plot.height)#
+a$yAxis(max = max(data$y), ceiling = max(data$y), maxPadding = 0, tickAmount = 2, gridLineWidth =  0, minorGridLineWidth = 0, title = list(text = ""))#
+#
+a$xAxis(lineWidth = 0, minorGridLineWidth = 0, lineColor = 'transparent', labels = list(enabled = FALSE), #
+	minorTickLength = 0, tickLength =  0)  	#
+a$tooltip(formatter = "#! function() { return 'In <b>' + this.point.y + ',</b> the initative:<br><i>' + this.point.name +#
+                    '</i><br>recolted <b>' + this.point.value + '%</b> of yes'; } !#")	 #
+a$legend(enabled = F)#
+a$addAssets(js =#
+   c(#"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",#
+     # "https://code.highcharts.com/highcharts.js",#
+     # "https://code.highcharts.com/highcharts-more.js",#
+     "https://code.highcharts.com/modules/exporting.js",#
+     "https://code.highcharts.com/modules/heatmap.js"#
+     )#
+)#
+a#
+#
+a$save(destfile = 'initiative.html')#
+#
+hChart2responsiveHTML("initiative.html", output.html = "initiative_heatmap.html", h2 = "Toutes les initiatives populaires suisses", descr = "",#
+	source = "", h3 = "", author = "Duc-Quang Nguyen | swissinfo.ch")
+library(swiRchart)
+library(swiRcharts)
+?hSeries
+ibrary(swiTheme)#
+a <- rCharts::Highcharts$new()#
+x <- 1:10#
+y <- seq(1, 100, 10)#
+z <- 10:1#
+color <- rep(c("grey", "red"), 5)#
+name <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")#
+series <- c(rep(c("blob", "poop", "doop"), 3), "asdf")#
+a$series(hSeries(x,y,z,name, color, series))#
+#
+# tweak the bubble plot#
+a$chart(zoomType = "xy", type = "bubble")#
+a$plotOptions(bubble = list(dataLabels = list(enabled = T, style = list(textShadow = 'none') ,#
+color = '#aa8959', formatter = "#! function() { return this.point.name; } !#")))#
+#
+a$colors(swi_rpal)#
+a$tooltip(formatter = "#! function() { return this.point.name + ':' +this.x + ', ' + this.y; } !#")#
+a$xAxis(title = list(text = "important indicator", align = "high"), lineColor = list ('#FF0000'))#
+a#
+#
+hChart.html <- tempfile("hchart_labelledBubble.html")#
+a$save(hChart.html)
+library(swiRchart)
+library(swiRcharts)
+?hSeries
+library(swiTheme)#
+a <- rCharts::Highcharts$new()#
+x <- 1:10#
+y <- seq(1, 100, 10)#
+z <- 10:1#
+color <- rep(c("grey", "red"), 5)#
+name <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")#
+series <- c(rep(c("blob", "poop", "doop"), 3), "asdf")#
+a$series(hSeries(x,y,z,name, color, series))
+a$chart(zoomType = "xy", type = "bubble")#
+a$plotOptions(bubble = list(dataLabels = list(enabled = T, style = list(textShadow = 'none') ,#
+color = '#aa8959', formatter = "#! function() { return this.point.name; } !#")))#
+#
+a$colors(swi_rpal)#
+a$tooltip(formatter = "#! function() { return this.point.name + ':' +this.x + ', ' + this.y; } !#")#
+a$xAxis(title = list(text = "important indicator", align = "high"), lineColor = list ('#FF0000'))#
+a#
+#
+hChart.html <- tempfile("hchart_labelledBubble.html")#
+a$save(hChart.html)
+hChart2responsiveHTML
+library(swiRcharts)
+?hSeries
+library(swiTheme)#
+a <- rCharts::Highcharts$new()#
+x <- 1:10#
+y <- seq(1, 100, 10)#
+z <- 10:1#
+color <- rep(c("grey", "red"), 5)#
+name <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")#
+series <- c(rep(c("blob", "poop", "doop"), 3), "asdf")#
+a$series(hSeries(x,y,z,name, color, series))
+hSeries2 <- hSeries2(data.frame(x = x, y = y, z = z, color = color, name = name, series = series), "series")#
+ b <- rCharts::Highcharts$new()#
+b$series(hSeries2)
+b
+install.packages("readr")
+install.package("devtools")
+install.packages("devtools")
+install.packages("rCharts")
+install.packages("devtools")#
+require(devtools)#
+install_github('rCharts', 'ramnathv')#
+library(rCharts)
+install_github(ramnathv/rCharts)
+1:2
+rev(1:2)
+library(rCharts)
+set.seed(123134)#
+y <- rnorm(20, 35, 4)#
+y[7] <- NA#
+y[13] <- NA#
+y <- rbind(t(t(y)), t(t(rep(NA, 10))))#
+fc <- rnorm(10, 35, 1)#
+fc <- rbind(t(t(rep(NA,20))), t(t(fc)))#
+uci <- rnorm(10, 38, 1)#
+uci <- rbind(t(t(rep(NA,20))), t(t(uci)))#
+lci <- rnorm(10, 32, 1)#
+lci <- rbind(t(t(rep(NA,20))), t(t(lci)))#
+plotData <- data.frame(y,fc,uci,lci)#
+#
+h1 <- Highcharts$new()#
+h1$chart(type="line")#
+h1$series(data=plotData$y, marker = list(symbol = 'circle'), connectNulls = TRUE)#
+h1$series(data=plotData$fc, marker = list(symbol = 'circle'), connectNulls = TRUE)#
+h1$series(data=plotData$uci, showInLegend = FALSE, marker = list(symbol = 'square'), connectNulls = TRUE)#
+h1$series(data=plotData$lci, showInLegend = FALSE, marker = list(symbol = 'square'), connectNulls = TRUE)#
+h1$series(data=rep(30,30), marker= list(enabled = FALSE))#
+h1
+257508 / 20524
+library(swiMap)
+test <- loadCommunesCHportraits()
+loadCommunesCHportraits
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+library(dplyr)#
+#
+### SETTINGS and data files#
+#
+# candidates data file#
+candidates.file <- "data/candidates_socio-demographics_2015-08-20.csv"#
+#
+# which columns should be a factor#
+candidates.factorCols <- c('gender', 'city', 'country', 'language', 'party_short', 'party_REC', 'district')#
+#
+# residence related data #
+zipcode.file <- "data/indicators/PLZO_CSV_LV03.csv"#
+communePortrait.file <- "data/indicators/communesCH_2015_indicators_je-f-21.03.01.csv"#
+communePortrait.file <- "data/indicators/be-b-00.04-rgs-01_urbanRural.csv"#
+#############################################################################################
+###		Get data#
+#############################################################################################
+#
+## 1. Get candidates data#
+data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+#
+# Have factor where it makes sense#
+for (col in candidates.factorCols) {#
+	data.read[,col] <- as.factor(data.read[,col])#
+}#
+#
+# get all candidates' unique zip code in Switzerland#
+zip.query <- unique(data.read %>% filter(country == 'Schweiz') %>% select(zip))#
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, stringsAsFactors = F, encoding = "latin1")
+str(zipCH)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")
+str(zipCH)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(zip.query, zipCH$PLZ)
+zip.query
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+zipCH$PLZ
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(zip.query, zipCH$PLZ)
+zip.query
+str(zip.query)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+zip.query <- unique(unlist(data.read %>% filter(country == 'Schweiz') %>% select(zip)))
+zip.query
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(zip.query, zipCH$PLZ)
+sum(is.na(match(zip.query, zipCH$PLZ)))
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip))
+)
+str(qr)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#
+match(qr$zip, zipCH$PLZ)
+str(zipCH)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+## 1. Get candidates data#
+data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+#
+# Have factor where it makes sense#
+for (col in candidates.factorCols) {#
+	data.read[,col] <- as.factor(data.read[,col])#
+}#
+#
+# get all candidates' unique zip code in Switzerland#
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#
+qr.communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
+qr.communeOfficial
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+## 1. Get candidates data#
+data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+#
+# Have factor where it makes sense#
+for (col in candidates.factorCols) {#
+	data.read[,col] <- as.factor(data.read[,col])#
+}#
+#
+# get all candidates' unique zip code in Switzerland#
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#
+qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
+str(qr)
+qr
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+## 1. Get candidates data#
+data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+#
+# Have factor where it makes sense#
+for (col in candidates.factorCols) {#
+	data.read[,col] <- as.factor(data.read[,col])#
+}#
+#
+# get all candidates' unique zip code in Switzerland#
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#
+qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
+str(qr)
+which(is.na(qr$communeOfficial))
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(qr$zip, data.read$zip)
+str(data.read)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+data.read[match(qr$zip, data.read$zip), 'city']
+as.character(data.read[match(qr$zip, data.read$zip), 'city'])
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+## 1. Get candidates data#
+data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+#
+# Have factor where it makes sense#
+for (col in candidates.factorCols) {#
+	data.read[,col] <- as.factor(data.read[,col])#
+}#
+#
+# get all candidates' unique zip code in Switzerland#
+qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
+qr$communeGiven <- as.character(data.read[match(qr$zip, data.read$zip), 'city'])
+qr
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+## 2. Get all data related to residence/commune/zip code#
+#
+zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#
+qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
+qr
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr %>% filter(is.na(communeOfficial))
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
+unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven))
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename]
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
+qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr[,is.na(communeOfficial)]
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr[is.na(communeOfficial),]
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr[is.na(qr$communeOfficial),]
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+qr[is.na(qr$communeOfficial),'communeOfficial']
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
+match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
+zipCH[match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename), 'Gemeindename']
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+communeClass <- read.csv(communeClass.file, header = TRUE, check.names = FALSE)
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+communeClass.file <- "data/indicators/be-b-00.04-rgs-01_urbanRural.csv"
+setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
+communeClass <- read.csv(communeClass.file, header = TRUE, check.names = FALSE)
+communeClass
