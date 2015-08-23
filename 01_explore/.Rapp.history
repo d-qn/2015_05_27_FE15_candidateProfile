@@ -1,3 +1,149 @@
+ch <- readOGR(path.ch, layer = 'municipalities')
+ch.df <- formatShp(ch)
+str(ch.df)
+ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) + #
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())
+lake <- readOGR(path.ch, layer = "lakes")#
+country <- readOGR(path.ch, layer = "country")
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.df <- formatShp(readOGR(path.ch, layer = "country"))
+alpha
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.df <- formatShp(readOGR(path.ch, layer = "country"))#
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 0.15) + #
+  geom_polygon(data = lake.df, fill = alpha("lightgrey", alpha = 1), colour = alpha("lightgrey", alpha = 1))
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) + #
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+ch.communes
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.df <- formatShp(readOGR(path.ch, layer = "country"))#
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 0.15) + #
+  geom_polygon(data = lake.df, fill = alpha("lightgrey", alpha = 1), colour = alpha("lightgrey", alpha = 1))
+?alpha
+library(swiMap)
+?getShpLayers
+require(rgdal)#
+require(rgeos)#
+require(ggplot2)#
+path <- getPathShp('world')#
+layers <- getShpLayers(path)#
+# read shapefiles for given layer#
+world <- readOGR(path, layer = layers[1])#
+world.df <- formatShp(world)#
+# plot world map#
+ggplot(world.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = FIPS)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+Same with swiss commune map (slow!)#
+## Not run: #
+path.ch <- getPathShp('CH')#
+ch <- readOGR(path.ch, layer = 'municipalities')#
+ch.df <- formatShp(ch)#
+# plot swiss commune map#
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+ch.communes
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.df <- formatShp(readOGR(path.ch, layer = "country"))
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 0.15) + geom_polygon(data = lake.df, fill = alpha("lightgrey", alpha = 1), colour = alpha("lightgrey", alpha = 1))
+library(scales)
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 0.15) + geom_polygon(data = lake.df, fill = alpha("lightgrey", alpha = 1), colour = alpha("lightgrey", alpha = 1))
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 0.15) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+ch.communes + geom_polygon(data = country.df, fill = NA, size = 1) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+str(country.df)
+library(swiMap)
+?getShpLayers
+require(rgdal)#
+require(rgeos)#
+require(ggplot2)
+path.ch <- getPathShp('CH')#
+ch <- readOGR(path.ch, layer = 'municipalities')#
+ch.df <- formatShp(ch)#
+# plot swiss commune map#
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+ch.communes#
+# add the lake and country contours#
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))#
+country.df <- formatShp(readOGR(path.ch, layer = "country"))#
+ch.communes + geom_polygon(data = country.df, fill = NA, color = "black", size = 2) + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+ch.communes + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey")
+str(country.df)
+geom_polygon(data = country.df, fill = NA, color = "black", size = 2)
+ggplot() + geom_polygon(data = country.df, fill = NA, color = "black", size = 2)
+ggplot(aes(lon, lat)) + geom_polygon(data = country.df, fill = NA, color = "black", size = 2)
+ggplot(aes(x = long, y = lat, group = group)) +  geom_polygon(data = country.df, fill = NA, color = "black", size = 2)
+str(country.df)
+ggplot(data = country.df,aes(x = long, y = lat, group = group)) +  geom_polygon( fill = NA, color = "black", size = 2)
+ch.communes + geom_polygon(data = lake.df, fill = "lightgrey", colour = "lightgrey") + geom_polygon(data = country.df, fill = NA, color = "black", size = 2)
+str(ch.df)
+unique(ch.df$id)
+length(unique(ch.df$id))
+str(ch.df)
+length(unique(ch.df$GEMNAME))
+length(unique(ch.df$BFSNR))
+head(df.ch)
+head(ch.df)
+tail(ch.df)
+which(ch.df$GEMNAME == 'Aeugst am Albis')
+ch.df[which(ch.df$GEMNAME == 'Aeugst am Albis'),]
+ch.df[which(ch.df$GEMNAME == 'Knonau'),]
+length(unique(ch.df$BFSNR))
+length(unique(ch.df$GEMNAME))
+duplicated(ch.df$BFSNR)
+ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
+ch.df[!duplicated(ch.df$BFSNR),'BFSNR']
+order(ch.df[!duplicated(ch.df$BFSNR),'BFSNR'])
+ch.df[order(ch.df[!duplicated(ch.df$BFSNR),'BFSNR']), c('BFSNR', 'GEMNAME')]
+ch.df[sort(ch.df[!duplicated(ch.df$BFSNR),'BFSNR']), c('BFSNR', 'GEMNAME')]
+order(ch.df[!duplicated(ch.df$BFSNR),'BFSNR'])
+ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
+bfsnName <- ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
+bfsnName
+?order
+order(bfsnName[,1])
+bfsnName[order(bfsnName[,1]),]
+bfsnName <- ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]
+bfsnName <- ch.df[!duplicated(ch.df$BFSNR),c('BFSNR', 'GEMNAME')]#
+str(bfsnName[order(bfsnName[,1]),])
+"GeoJSON" %in% ogrDrivers()$name
+library(rgdal)
+install.packages("rgeos", repos="http://R-Forge.R-project.org", type="source")
+install.packages('rgdal')
+install.packages('rgdal', type='source')
+library(rgdal)
+install.packages('rgdal', type='source')
+library(rgdal)
+install.packages('rgdal')
+install.packages('rgdal', type='source')
+library(rgdal)
+library(swiMap)
+?getShpLayers
+require(rgdal)#
+require(rgeos)#
+require(ggplot2)#
+path <- getPathShp('world')#
+layers <- getShpLayers(path)#
+# read shapefiles for given layer#
+world <- readOGR(path, layer = layers[1])#
+world.df <- formatShp(world)#
+# plot world map#
+ggplot(world.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = FIPS)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+Same with swiss commune map (slow!)#
+## Not run: #
+path.ch <- getPathShp('CH')#
+ch <- readOGR(path.ch, layer = 'municipalities')#
+ch.df <- formatShp(ch)#
+# plot swiss commune map#
+ch.communes <- ggplot(ch.df, aes(x = long, y = lat, group = group)) + geom_polygon(size = 0.01, aes(fill = GEMNAME)) +#
+theme_minimal() + theme(legend.position = "none", panel.grid = element_blank(), axis.ticks = element_blank(), axis.title = element_blank(), axis.text = element_blank())#
+ch.communes#
+# add the lake and country contours#
+lake.df <- formatShp(readOGR(path.ch, layer = "lakes"))
+ogrListLayers(file.path(path.ch, "ch-country.ch"))
+ogrListLayers(file.path(path.ch, "ch-country.json"))
+country.layers <- ogrListLayers(file.path(path.ch, "ch-country.json"))
+country.layers
 country.df <- readOGR(file.path(path.ch, "ch-country.json"), "country")
 country.layers <- ogrListLayers(file.path(path.ch, "ch-country.json"))
 country.df <- formatShp(readOGR(file.path(path.ch, "ch-country.json"), country.layers[1]))
@@ -382,8 +528,11 @@ test <- loadCommunesCHportraits()
 loadCommunesCHportraits
 setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
 library(dplyr)#
+library(ggplot2)#
+library(scales)#
 #
 ### SETTINGS and data files#
+theme_set(theme_bw())#
 #
 # candidates data file#
 candidates.file <- "data/candidates_socio-demographics_2015-08-20.csv"#
@@ -394,7 +543,7 @@ candidates.factorCols <- c('gender', 'city', 'country', 'language', 'party_short
 # residence related data #
 zipcode.file <- "data/indicators/PLZO_CSV_LV03.csv"#
 communePortrait.file <- "data/indicators/communesCH_2015_indicators_je-f-21.03.01.csv"#
-communePortrait.file <- "data/indicators/be-b-00.04-rgs-01_urbanRural.csv"#
+communeClass.file <- "data/indicators/be-b-00.04-rgs-01_urbanRural.csv"#
 #############################################################################################
 ###		Get data#
 #############################################################################################
@@ -407,154 +556,69 @@ for (col in candidates.factorCols) {#
 	data.read[,col] <- as.factor(data.read[,col])#
 }#
 #
-# get all candidates' unique zip code in Switzerland#
-zip.query <- unique(data.read %>% filter(country == 'Schweiz') %>% select(zip))#
-## 2. Get all data related to residence/commune/zip code#
+# uglyhack: some manual corrections for zip code & given city names#
+zipManualFix <- structure(c(#
+	7107,	9000,	1898,	1201#
+	), names=c(#
+	"7101 Safien Platz", "9001 St.Gallen", "1989 St-Gingolph", "1211 Genève 1"#
+))#
 #
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, stringsAsFactors = F, encoding = "latin1")
-str(zipCH)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")
-str(zipCH)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(zip.query, zipCH$PLZ)
-zip.query
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-zipCH$PLZ
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(zip.query, zipCH$PLZ)
-zip.query
-str(zip.query)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-zip.query <- unique(unlist(data.read %>% filter(country == 'Schweiz') %>% select(zip)))
-zip.query
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(zip.query, zipCH$PLZ)
-sum(is.na(match(zip.query, zipCH$PLZ)))
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip))
-)
-str(qr)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
-## 2. Get all data related to residence/commune/zip code#
+# clean up age#
+data.read[which(data.read$age < 0),'age'] <- NA#
+# replace some of the wrong zip code#
+data.read[match(names(zipManualFix), paste(data.read$zip, data.read$city)),'zip'] <- zipManualFix#
 #
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
-#
-match(qr$zip, zipCH$PLZ)
-str(zipCH)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-## 1. Get candidates data#
-data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
-#
-# Have factor where it makes sense#
-for (col in candidates.factorCols) {#
-	data.read[,col] <- as.factor(data.read[,col])#
-}#
-#
+## 2. build a table with correspondance between zip code, commune name, and bfs commune code#
 # get all candidates' unique zip code in Switzerland#
 qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
-## 2. Get all data related to residence/commune/zip code#
-#
+qr$communeGiven <- as.character(data.read[match(qr$zip, data.read$zip), 'city'])#
+## 3. Load all data related to residence/commune/zip code#
 zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+communePortrait <- read.csv(communePortrait.file, skip = 2, header = TRUE, stringsAsFactors = F, check.names = FALSE)#
+communeClass <- read.csv(communeClass.file, header = TRUE, check.names = FALSE)#
 #
-qr.communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
-qr.communeOfficial
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-## 1. Get candidates data#
-data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+## 4. Populate table of zip code, commune name, and bfs commune code #
 #
-# Have factor where it makes sense#
-for (col in candidates.factorCols) {#
-	data.read[,col] <- as.factor(data.read[,col])#
-}#
+# Match commune names#
+qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']#
+qr$bfs <- communeClass[match(qr$communeOfficial, communeClass[,2]),1]#
 #
-# get all candidates' unique zip code in Switzerland#
-qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
-## 2. Get all data related to residence/commune/zip code#
+# For elements without bfs code, match the commune name given by the candidate#
+qr[is.na(qr$bfs),'bfs'] <- match(unlist(qr %>% filter(is.na(bfs)) %>% select(communeGiven)), communeClass[,2])#
 #
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+## display the % of commune without bfs code#
+warning(sum(is.na(qr$bfs)), " given zip does not have a BFS commune code!", "\n", "This represents: ", #
+	round((sum(is.na(qr$bfs)) / nrow(qr)) * 100, 3), " %of the whole data")#
+# qr[is.na(qr$bfs),]#
+#############################################################################################
+###		Subset candidates data and combine with indicators#
+#############################################################################################
 #
-qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
-str(qr)
-qr
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-## 1. Get candidates data#
-data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+data <- data.read %>% select(one_of(c('ID_user', 'ID_Candidate', 'firstname', 'lastname', 'gender', 'year_of_birth',#
+	'age', 'zip', 'city', 'country', 'party_short', 'party_REC', 'district', 'language')))#
+data$bfs <- qr[match(data$zip, qr$zip),'bfs']#
+# set to NA bfs code for candidates living not in Switzerland#
+data[which(data$country != "Schweiz"),'bfs'] <- NA#
 #
-# Have factor where it makes sense#
-for (col in candidates.factorCols) {#
-	data.read[,col] <- as.factor(data.read[,col])#
-}#
+# add rural/countryside BFS classification#
+data$communeUrbanClass <- communeClass[match(data$bfs, communeClass[,1]), "Régions urbaines / rurales 2000*"]#
 #
-# get all candidates' unique zip code in Switzerland#
-qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
-## 2. Get all data related to residence/commune/zip code#
+# add communal portrait data#
+data$communeBuildingSurface <- communePortrait[match(data$bfs, communePortrait[,1]), "Surfaces d'habitat et d'infrastructure en %"]#
+data$communeForeigner <- communePortrait[match(data$bfs, communePortrait[,1]), "Etrangers en %"]#
 #
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
+#############################################################################################
+###		Plot#
+#############################################################################################
 #
-qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
-str(qr)
-which(is.na(qr$communeOfficial))
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(qr$zip, data.read$zip)
-str(data.read)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-data.read[match(qr$zip, data.read$zip), 'city']
-as.character(data.read[match(qr$zip, data.read$zip), 'city'])
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-## 1. Get candidates data#
-data.read <- read.csv(candidates.file, header = TRUE, stringsAsFactors = F)#
+# gender, age, language, party, urban#
 #
-# Have factor where it makes sense#
-for (col in candidates.factorCols) {#
-	data.read[,col] <- as.factor(data.read[,col])#
-}#
+#http://stackoverflow.com/questions/4725339/percentage-on-y-lab-in-a-faceted-ggplot-barchart#
 #
-# get all candidates' unique zip code in Switzerland#
-qr <- data.frame(zip = unique(data.read %>% filter(country == 'Schweiz') %>% select(zip)))#
-qr$communeGiven <- as.character(data.read[match(qr$zip, data.read$zip), 'city'])
-qr
+# gender
 setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-## 2. Get all data related to residence/commune/zip code#
-#
-zipCH <- read.csv(zipcode.file, sep =";", header = TRUE, encoding = "latin1")#
-#
-qr$communeOfficial <- zipCH[match(qr$zip, zipCH$PLZ), 'Gemeindename']
-qr
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr %>% filter(is.na(communeOfficial))
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
-unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven))
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename]
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
-qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr[,is.na(communeOfficial)]
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr[is.na(communeOfficial),]
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr[is.na(qr$communeOfficial),]
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-qr[is.na(qr$communeOfficial),'communeOfficial']
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
-match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename)
-zipCH[match(unlist(qr %>% filter(is.na(communeOfficial)) %>% select(communeGiven)), zipCH$Gemeindename), 'Gemeindename']
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-communeClass <- read.csv(communeClass.file, header = TRUE, check.names = FALSE)
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-communeClass.file <- "data/indicators/be-b-00.04-rgs-01_urbanRural.csv"
-setwd('/Users/nguyendu/Google Drive/swissinfo/2015_05_27_FE15_candidateProfile/01_explore')
-communeClass <- read.csv(communeClass.file, header = TRUE, check.names = FALSE)
-communeClass
+gp1 <- ggplot(data = data, aes(x = gender)) + geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..])) + scale_y_continuous(labels = percent) #
+gp1 + facet_grid(. ~ party_REC)
+gp1 <- ggplot(data = data, aes(x = gender)) + geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..])) + scale_y_continuous(labels = percent) #
+gp1 + facet_grid(. ~ party_REC)
+data.read[which(data.read$age < 0),'age']
